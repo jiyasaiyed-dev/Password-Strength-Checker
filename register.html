@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Password Strength Checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="register-card">
+      <h1 class="form-title">Create Account</h1>
+      <p class="form-subtitle">Join us — it only takes a minute.</p>
+
+      <!-- General success / error banner -->
+      <div id="generalMessage" class="message-banner hidden"></div>
+
+      <form id="registerForm" novalidate>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="full_name" placeholder="e.g. Dharmik Rana" autocomplete="name">
+          <span class="error-text" id="fullNameError"></span>
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="e.g. dharmik_2025" autocomplete="username">
+          <span class="error-text" id="usernameError"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="e.g. dharmik@example.com" autocomplete="email">
+          <span class="error-text" id="emailError"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password" placeholder="Create a strong password" autocomplete="new-password">
+            <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password">👁️</button>
+          </div>
+          <span class="error-text" id="passwordError"></span>
+
+          <!-- Strength Meter -->
+          <div class="strength-meter-wrapper">
+            <div class="strength-meter-bar">
+              <div id="strengthBarFill" class="strength-bar-fill"></div>
+            </div>
+            <span id="strengthLabel" class="strength-label">Strength: —</span>
+          </div>
+
+          <!-- Requirements Checklist -->
+          <ul class="requirements-list" id="requirementsList">
+            <li id="req-length"><span class="req-icon">✗</span> At least 8 characters</li>
+            <li id="req-uppercase"><span class="req-icon">✗</span> One uppercase letter (A-Z)</li>
+            <li id="req-lowercase"><span class="req-icon">✗</span> One lowercase letter (a-z)</li>
+            <li id="req-number"><span class="req-icon">✗</span> One number (0-9)</li>
+            <li id="req-special"><span class="req-icon">✗</span> One special character (!@#$...)</li>
+          </ul>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Re-enter your password" autocomplete="new-password">
+            <button type="button" class="toggle-password" id="toggleConfirmPassword" aria-label="Show password">👁️</button>
+          </div>
+          <span class="error-text" id="confirmPasswordError"></span>
+          <span id="matchStatus" class="match-status"></span>
+        </div>
+
+        <button type="submit" class="btn-primary btn-block" id="registerBtn">Register</button>
+
+        <p class="form-footer">Already have an account? <a href="{{ url_for('index') }}">Back to Home</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

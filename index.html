@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Strength Checker | Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="landing-wrapper">
+    <div class="landing-card">
+      <div class="landing-icon">🔐</div>
+      <h1>Password Strength Checker</h1>
+      <p class="landing-subtitle">
+        A secure registration system that evaluates your password strength
+        in real time and keeps your account safe.
+      </p>
+      <a href="{{ url_for('register_page') }}" class="btn-primary">Get Started</a>
+
+      <div class="feature-list">
+        <div class="feature-item">✅ Real-time strength meter</div>
+        <div class="feature-item">✅ Secure password hashing</div>
+        <div class="feature-item">✅ Instant validation feedback</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
